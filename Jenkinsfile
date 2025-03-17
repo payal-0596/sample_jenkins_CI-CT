@@ -9,14 +9,14 @@ pipeline {
         }
         stage('Test') {
             steps {
-                dir('.'){
-                powershell 'python -m unittest discover'
-                }// Example Python unit tests
+                dir('.') {
+                    bat 'python -m unittest discover -t . -s . -p "*test.py" -v > test-report.xml'
+                }
             }
         }
-        stage('Report') {  // Optional, but good practice
+        stage('Report') {
             steps {
-                junit '**/reports/*.xml' // If your tests generate JUnit-style reports
+                junit 'test-report.xml'  // Tell Jenkins where to find the reports
             }
         }
     }
