@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'python -m unittest discover' // Example Python unit tests
+                powershell 'python -m unittest discover' // Example Python unit tests
             }
         }
         stage('Report') {  // Optional, but good practice
