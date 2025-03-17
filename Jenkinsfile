@@ -10,7 +10,7 @@ pipeline {
         stage('Test') {
             steps {
                 dir('.') {
-                    bat 'python -m unittest discover -t . -s . -p "*test.py" -v > test-report.xml'
+                    bat 'python -m unittest discover -t . -s . -p "test*.py" -v > test-report.xml'
                 }
             }
         }
