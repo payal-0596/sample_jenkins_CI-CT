@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Report') {  // Optional, but good practice
             steps {
-                junit 'test-reports/*.xml'  // If your tests generate JUnit-style reports
+                junit '**/reports/*.xml' // If your tests generate JUnit-style reports
             }
         }
     }
