@@ -1,6 +1,6 @@
 # test_calculator.py
 import unittest
-from calculator import add, subtract, multiply, divide, power
+from calulator import add, subtract, multiply, divide, power
 
 class TestCalculator(unittest.TestCase):
 
