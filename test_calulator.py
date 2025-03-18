@@ -2,7 +2,7 @@
 import unittest
 import xmlrunner #Ensure XML runner
 
-from calculator import add, subtract, multiply, divide, power
+from calulator import add, subtract, multiply, divide, power
 
 class TestCalculator(unittest.TestCase):
 
