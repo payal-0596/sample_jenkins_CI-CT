@@ -16,13 +16,13 @@ pipeline {
                 // Run the tests and generate JUnit XML report
               
 
-bat 'python -m unittest discover -s . -p "test_*.py" -t .'
+ bat 'python -m unittest test_calulator.py > test-report.xml'
                 }
             }
         }
         stage('Report') {
             steps {
-                junit '**/TEST-*.xml' //Adjust the directory, based on the discover report name
+                 junit 'test-reports/*.xml' //Adjust the directory, based on the discover report name
             }
         }
     }
