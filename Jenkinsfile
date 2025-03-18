@@ -4,19 +4,22 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-              git url: 'https://github.com/lakkawardhananjay/sample_jenkins_CI-CT.git', branch: 'main'
+                git url: 'https://github.com/lakkawardhananjay/sample_jenkins_CI-CT.git', branch: 'main'
             }
         }
         stage('Test') {
             steps {
-                dir('.') {
-                         bat 'python -m unittest test_calulator.py > test-report.xml'
-                }
+                // Ensure unittest-xml-reporting is installed (or add to your requirements.txt)
+                bat 'pip install unittest-xml-reporting'
+
+                // Run the tests and generate JUnit XML report
+                bat 'python -m unittest discover -s . -p "test_*.py"'
+
             }
         }
         stage('Report') {
             steps {
-                junit 'test-report.xml'  // Tell Jenkins where to find the reports
+                junit '**/TEST-*.xml' //Adjust the directory, based on the discover report name
             }
         }
     }
