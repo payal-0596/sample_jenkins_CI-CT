@@ -14,7 +14,9 @@ pipeline {
                 // bat 'pip install unittest-xml-reporting'
 
                 // Run the tests and generate JUnit XML report
-                bat 'python -m unittest discover'
+              
+
+bat 'python -m unittest discover -s . -p "test_*.py" -t .'
                 }
             }
         }
