@@ -10,10 +10,10 @@ pipeline {
         stage('Test') {
             steps {
                 // Ensure unittest-xml-reporting is installed
-                sh 'pip install unittest-xml-reporting'
+                bat 'pip install unittest-xml-reporting'
 
                 // Run the tests and generate JUnit XML report
-                sh 'python -m unittest discover -s . -p "test_*.py"'
+                bat 'python -m unittest discover -s . -p "test_*.py"'
             }
         }
         stage('Report') {
