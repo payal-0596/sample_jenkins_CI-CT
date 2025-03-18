@@ -1,6 +1,6 @@
 # test_calculator.py
 import unittest
-import xmlrunner #Ensure XML runner
+# import xmlrunner #Ensure XML runner
 
 from calulator import add, subtract, multiply, divide, power
 
@@ -46,4 +46,4 @@ class TestCalculator(unittest.TestCase):
         self.assertEqual(power(2, 0.5), 2**0.5) # fractional power
 
 if __name__ == '__main__':
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports')) #To call it!
+    unittest.main() #To call it!
