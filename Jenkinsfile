@@ -21,7 +21,7 @@ pipeline {
         }
         stage('Report') {
             steps {
-                junit '**/TEST-*.xml' //Adjust the directory, based on the discover report name
+                junit '**/test-reports/*.xml' //Adjust the directory, based on the discover report name
             }
         }
     }
