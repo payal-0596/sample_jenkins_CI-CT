@@ -12,7 +12,10 @@ pipeline {
                 // Ensure unittest-xml-reporting is installed
                 bat 'pip install unittest-xml-reporting'
 
-                // Run the tests and generate JUnit XML report
+                // List all files in the workspace
+                bat 'dir'
+
+                //Run the tests and generate JUnit XML report
                 bat 'python -m unittest discover -s . -p "test_*.py"'
             }
         }
