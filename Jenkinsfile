@@ -8,12 +8,13 @@ pipeline {
             }
         }
         stage('Test') {
-            steps {
-                dir('.') {
-                    bat 'python -m unittest discover'
-                }
-            }
+    steps {
+        dir('.') {
+            bat 'pip install pytest pytest-xdist'
+            bat 'python -m pytest --junitxml=test-report.xml'
         }
+    }
+}
         stage('Report') {
             steps {
                 junit 'test-report.xml'  // Tell Jenkins where to find the reports
